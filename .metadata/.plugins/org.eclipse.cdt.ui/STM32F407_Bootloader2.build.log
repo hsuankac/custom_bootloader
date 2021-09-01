@@ -1,0 +1,10 @@
+13:12:53 **** Incremental Build of configuration Debug for project STM32F407_Bootloader2 ****
+make -j8 all 
+arm-none-eabi-size   STM32F407_Bootloader2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31104	    392	  31760	  63256	   f718	STM32F407_Bootloader2.elf
+Finished building: default.size.stdout
+ 
+
+13:12:55 Build Finished. 0 errors, 0 warnings. (took 2s.98ms)
+
