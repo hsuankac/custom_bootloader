@@ -1,10 +1,10 @@
-16:24:44 **** Incremental Build of configuration Debug for project bootloader_stm32f407 ****
+22:30:11 **** Incremental Build of configuration Debug for project bootloader_stm32f407 ****
 make -j8 all 
 arm-none-eabi-size   bootloader_stm32f407.elf 
    text	   data	    bss	    dec	    hex	filename
-  34208	    152	   3944	  38304	   95a0	bootloader_stm32f407.elf
+  39072	    164	   3980	  43216	   a8d0	bootloader_stm32f407.elf
 Finished building: default.size.stdout
  
 
-16:24:46 Build Finished. 0 errors, 0 warnings. (took 2s.242ms)
+22:30:14 Build Finished. 0 errors, 0 warnings. (took 2s.185ms)
 

@@ -51,7 +51,7 @@ UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
-char userdata[] = "Hello from application\r\n";
+char userdata[] = "Hello you dump af in application mode\r\n";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

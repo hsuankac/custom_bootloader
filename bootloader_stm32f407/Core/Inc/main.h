@@ -28,8 +28,8 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+#include<stdint.h>
 #include "stm32f4xx_hal.h"
-#define FLASH_SECTOR2_BASE_ADDRESS 0x08008000U
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -139,9 +139,9 @@ void bootloader_handle_go_cmd(uint8_t *pBuffer);
 void bootloader_handle_flash_erase_cmd(uint8_t *pBuffer);
 void bootloader_handle_mem_write_cmd(uint8_t *pBuffer);
 void bootloader_handle_en_rw_protect(uint8_t *pBuffer);
+void bootloader_handle_dis_rw_protect(uint8_t *pBuffer);
 void bootloader_handle_mem_read (uint8_t *pBuffer);
-void bootloader_handle_read_sector_status(uint8_t *pBuffer);
-void bootloader_handle_read_otp(uint8_t *pBuffer);
+void bootloader_handle_read_sector_protection_status(uint8_t *pBuffer);
 
 void bootloader_send_ack(uint8_t command_code, uint8_t follow_len);
 void bootloader_send_nack(void);
@@ -149,19 +149,22 @@ void bootloader_send_nack(void);
 uint8_t bootloader_verify_crc(uint8_t *pData, uint32_t len,uint32_t crc_host);
 uint8_t get_bootloader_version(void);
 void bootloader_uart_write_data(uint8_t *pBuffer,uint32_t len);
-
 uint16_t get_mcu_chip_id(void);
 uint8_t get_flash_rdp_level(void);
 uint8_t verify_address(uint32_t go_address);
 uint8_t execute_flash_erase(uint8_t sector_number , uint8_t number_of_sector);
 uint8_t execute_mem_write(uint8_t *pBuffer, uint32_t mem_address, uint32_t len);
-
+uint8_t configure_flash_sector_rw_protection(uint8_t sector_details, uint8_t protection_mode, uint8_t disable);
+uint16_t read_OB_rw_protection_status(void);
+uint8_t get_flash_rdp_level(void);
+uint16_t get_mcu_chip_id(void);
+uint8_t execute_flash_erase(uint8_t sector_number , uint8_t number_of_sector);
+uint8_t execute_mem_write(uint8_t *pBuffer, uint32_t mem_address, uint32_t len);
 uint8_t configure_flash_sector_rw_protection(uint8_t sector_details, uint8_t protection_mode, uint8_t disable);
 
-uint16_t read_OB_rw_protection_status(void);
-
+#define FLASH_SECTOR2_BASE_ADDRESS 0x08020000U
 //version 1.0
-#define BL_VERSION 0x10
+#define BL_VERSION              0x10
 
 // our bootloader commands
 
@@ -212,6 +215,22 @@ uint16_t read_OB_rw_protection_status(void);
 /*CRC*/
 #define VERIFY_CRC_FAIL    1
 #define VERIFY_CRC_SUCCESS 0
+
+#define ADDR_VALID 0x00
+#define ADDR_INVALID 0x01
+
+#define INVALID_SECTOR 0x04
+
+/*Some Start and End addresses of different memories of STM32F446xx MCU */
+/*Change this according to your MCU */
+#define SRAM1_SIZE            112*1024     // STM32F446RE has 112KB of SRAM1
+#define SRAM1_END             (SRAM1_BASE + SRAM1_SIZE)
+#define SRAM2_SIZE            16*1024     // STM32F446RE has 16KB of SRAM2
+#define SRAM2_END             (SRAM2_BASE + SRAM2_SIZE)
+#define FLASH_SIZE            1000*1024     // STM32F446RE has 1000KB of flash memory
+#define BKPSRAM_SIZE          4*1024     // STM32F446RE has 4KB of BKPSRAM
+#define BKPSRAM_END           (BKPSRAM_BASE + BKPSRAM_SIZE)
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

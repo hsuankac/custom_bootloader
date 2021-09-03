@@ -1,10 +1,10 @@
-15:54:49 **** Incremental Build of configuration Debug for project user_app_stm32f407 ****
+22:29:33 **** Incremental Build of configuration Debug for project user_app_stm32f407 ****
 make -j8 all 
 arm-none-eabi-size   user_app_stm32f407.elf 
    text	   data	    bss	    dec	    hex	filename
-  34092	    180	   3740	  38012	   947c	user_app_stm32f407.elf
+  34092	    192	   3744	  38028	   948c	user_app_stm32f407.elf
 Finished building: default.size.stdout
  
 
-15:54:51 Build Finished. 0 errors, 0 warnings. (took 2s.206ms)
+22:29:36 Build Finished. 0 errors, 0 warnings. (took 2s.148ms)
 

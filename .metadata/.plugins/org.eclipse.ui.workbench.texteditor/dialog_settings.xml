@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="D_UART"/>
+		<item key="selection" value="len"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="D_UART"/>
-			<item value="bootloader_handle_en_rw_protect"/>
+			<item value="len"/>
+			<item value="addr_valid"/>
+			<item value="read_OB_rw_protection_status"/>
+			<item value="BL_READ_SECTOR_P_STATUS"/>
+			<item value="get_flash_rdp_level"/>
+			<item value="bootloader_handle_getrdp_cmd"/>
+			<item value="FLASHEx_Option_Bytes_Read_Protection"/>
+			<item value="FLASHEx_WRP_State"/>
+			<item value="FLASHEx_Option_Type"/>
+			<item value="WRPSector"/>
+			<item value="bootloader_handle_read_sector_protection_status"/>
 			<item value="bootloader_handle_read_sector_status"/>
-			<item value="bootloader_handle_endis_rw_cmd"/>
-			<item value="FLASH_SECTOR2_BASE_ADDRESS"/>
-			<item value="bootloader_verify_crc"/>
-			<item value="BL_DEBUG_MSG_EN"/>
-			<item value="HAL_CRC_Init"/>
-			<item value="bootloader_uart_read_data"/>
-			<item value="bootloader_jump_to_app"/>
-			<item value="BL_READ_SECTOR_STATUS"/>
-			<item value="BL_VERSION"/>
-			<item value="bootloader_handle_getver_cmd"/>
-			<item value="Error_Handler"/>
-			<item value="VECT_TAB_OFFSET"/>
+			<item value="bootloader_uart_write_data"/>
+			<item value="configure_flash_sector_rw_protection"/>
+			<item value="bootloader_handle_dis_rw_protect"/>
 		</list>
 		<list key="replacehistory">
 		</list>
